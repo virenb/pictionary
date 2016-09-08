@@ -8,4 +8,15 @@ app.use(express.static('public'));
 var server = http.Server(app);
 var io = socket_io(server);
 
+io.on('connect', function(socket) {
+	
+	socket.on('position', function(position) {
+		socket.broadcast.emit('position', position);
+		console.log(position);
+	});
+
+
+
+});
+
 server.listen(8080);
