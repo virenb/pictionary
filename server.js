@@ -11,10 +11,11 @@ var io = socket_io(server);
 io.on('connect', function(socket) {
 	
 	socket.on('position', function(position) {
+		console.log('Is drawing')
 		socket.broadcast.emit('position', position);
 		console.log(position);
 	});
-
+	
 
 
 });
